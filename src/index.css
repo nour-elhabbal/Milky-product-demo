@@ -58,7 +58,7 @@ body::-webkit-scrollbar {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
   .general-title {
-    @apply text-5xl leading-[9vw] font-bold tracking-[-.35vw] uppercase md:text-8xl 2xl:text-[8.5rem];
+    @apply text-5xl font-bold tracking-[-.35vw] uppercase md:text-8xl 2xl:text-[8.5rem];
   }
 }
 

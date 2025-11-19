@@ -3,7 +3,7 @@ import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 import { Header } from "./components";
-import { Hero, InterludeBanner } from "./sections";
+import { FlavoursSection, HeroSection, InterludeSection } from "./sections";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -20,8 +20,9 @@ const App = () => {
       <Header />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <Hero />
-          <InterludeBanner />
+          <HeroSection />
+          <InterludeSection />
+          <FlavoursSection />
           <div className="relative z-15 h-dvh bg-amber-700"></div>
         </div>
       </div>

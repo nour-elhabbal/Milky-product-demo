@@ -2,12 +2,12 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 
-export const Hero = () => {
+export const HeroSection = () => {
   useGSAP(() => {
     const titleSplit = SplitText.create(".heroContent h1", { type: "chars" });
 
     const tl = gsap.timeline({
-      delay: 0,
+      delay: 0.5,
     });
 
     tl.to(".heroContent", {

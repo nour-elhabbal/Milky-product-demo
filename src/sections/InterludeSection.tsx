@@ -4,7 +4,7 @@ import { SplitText } from "gsap/all";
 
 const interludeTextStyles = `text-faint-text text-center text-[9rem] max-md:text-[6.5rem] max-sm:text-[4.5rem] leading-none font-bold tracking-[-0.04em] uppercase`;
 
-export const InterludeBanner = () => {
+export const InterludeSection = () => {
   useGSAP(() => {
     const text1splitted = SplitText.create(".interlude-text1", {
       type: "words",
@@ -22,7 +22,7 @@ export const InterludeBanner = () => {
       scrollTrigger: {
         trigger: ".interludeSection",
         start: "top 60%",
-        end: "bottom 90%",
+        end: "bottom 70%",
         scrub: true,
       },
     });
@@ -41,14 +41,18 @@ export const InterludeBanner = () => {
           ease: "power2.inout",
           duration: 10,
         },
-        "+=10",
+        "<=2",
       )
-      .to(text2splitted.words, {
-        color: "#faeade",
-        stagger: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
+      .to(
+        text2splitted.words,
+        {
+          color: "#faeade",
+          stagger: 1,
+          duration: 2,
+          ease: "power2.out",
+        },
+        "+=1",
+      );
 
     const paragraphTl = gsap.timeline({
       scrollTrigger: {

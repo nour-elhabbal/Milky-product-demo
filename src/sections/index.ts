@@ -1,2 +1,3 @@
-export * from "./Hero";
-export * from "./InterludeBanner";
+export * from "./HeroSection";
+export * from "./InterludeSection";
+export * from "./FlavoursSection";

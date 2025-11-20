@@ -1,0 +1,108 @@
+export const productsList = [
+  {
+    name: "Chocolate Milk",
+    color: "brown",
+    rotation: "md:rotate-[-8deg] rotate-0",
+    productImageUrl: "/images/brown-drink.webp",
+    bgUrl: "/images/brown-bg.svg",
+    particlesUrl: "/images/brown-elements.webp",
+  },
+  {
+    name: "Strawberry Milk",
+    color: "red",
+    rotation: "md:rotate-[8deg] rotate-0",
+    productImageUrl: "/images/red-drink.webp",
+    bgUrl: "/images/red-bg.svg",
+    particlesUrl: "/images/red-elements.webp",
+  },
+  {
+    name: "Cookies & Cream",
+    color: "blue",
+    rotation: "md:rotate-[-8deg] rotate-0",
+    productImageUrl: "/images/blue-drink.webp",
+    bgUrl: "/images/blue-bg.svg",
+    particlesUrl: "/images/blue-elements.webp",
+  },
+  {
+    name: "Peanut Butter Chocolate",
+    color: "orange",
+    rotation: "md:rotate-[8deg] rotate-0",
+    productImageUrl: "/images/orange-drink.webp",
+    bgUrl: "/images/orange-bg.svg",
+    particlesUrl: "/images/orange-elements.webp",
+  },
+  {
+    name: "Vanilla Milkshake",
+    color: "white",
+    rotation: "md:rotate-[-8deg] rotate-0",
+    productImageUrl: "/images/white-drink.webp",
+    bgUrl: "/images/white-bg.svg",
+    particlesUrl: "/images/white-elements.webp",
+  },
+  {
+    name: "Max Chocolate Milk",
+    color: "black",
+    rotation: "md:rotate-[8deg] rotate-0",
+    productImageUrl: "/images/black-drink.webp",
+    bgUrl: "/images/black-bg.svg",
+    particlesUrl: "/images/black-elements.webp",
+  },
+];
+
+export const nutrientLists = [
+  { label: "Potassium", amount: "245mg" },
+  { label: "Calcium", amount: "500mg" },
+  { label: "Vitamin A", amount: "176mcg" },
+  { label: "Vitamin D", amount: "5mcg" },
+  { label: "Iron", amount: "1mg" },
+];
+
+export const cards = [
+  {
+    src: "/videos/f1.mp4",
+    rotation: "rotate-z-[-10deg]",
+    name: "Madison",
+    img: "/images/p1.png",
+    translation: "translate-y-[-5%]",
+  },
+  {
+    src: "/videos/f2.mp4",
+    rotation: "rotate-z-[4deg]",
+    name: "Alexander",
+    img: "/images/p2.png",
+  },
+  {
+    src: "/videos/f3.mp4",
+    rotation: "rotate-z-[-4deg]",
+    name: "Andrew",
+    img: "/images/p3.png",
+    translation: "translate-y-[-5%]",
+  },
+  {
+    src: "/videos/f4.mp4",
+    rotation: "rotate-z-[4deg]",
+    name: "Bryan",
+    img: "/images/p4.png",
+    translation: "translate-y-[5%]",
+  },
+  {
+    src: "/videos/f5.mp4",
+    rotation: "rotate-z-[-10deg]",
+    name: "Chris",
+    img: "/images/p5.png",
+  },
+  {
+    src: "/videos/f6.mp4",
+    rotation: "rotate-z-[4deg]",
+    name: "Devante",
+    img: "/images/p6.png",
+    translation: "translate-y-[5%]",
+  },
+  {
+    src: "/videos/f7.mp4",
+    rotation: "rotate-z-[-3deg]",
+    name: "Melisa",
+    img: "/images/p7.png",
+    translation: "translate-y-[10%]",
+  },
+];

@@ -2,7 +2,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 
-export const FlavoursSectionTitle = () => {
+export const FlavoursSectionTitle = ({
+  isSmallScreen,
+}: {
+  isSmallScreen: boolean;
+}) => {
   useGSAP(() => {
     const splittedText1 = SplitText.create(".flavours-title-text1", {
       type: " chars",
@@ -14,16 +18,16 @@ export const FlavoursSectionTitle = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".flavours-section",
-        start: "top 50%",
-        end: "bottom bottom",
-        scrub: true,
+        start: isSmallScreen ? "top 100%" : "top 60%",
+        end: isSmallScreen ? "100vh 25%" : "bottom 80%",
+        toggleActions: "play none none reset", // Play on enter, reverse on leave
       },
     });
 
     tl.from(splittedText1.chars, {
       yPercent: 200,
-      stagger: 0.3,
-      duration: 5,
+      stagger: 0.02,
+      rotate: 5,
       ease: "power2.out",
     })
       .from(
@@ -31,26 +35,26 @@ export const FlavoursSectionTitle = () => {
         {
           clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
           opacity: 0.5,
-          duration: 10,
-          ease: "power2.out",
+          duration: 1,
+          ease: "power2.inOut",
         },
-        "<=2",
+        "-=0.5",
       )
       .from(
         splittedText2.chars,
         {
           yPercent: -200,
           opacity: 0,
-          stagger: 0.2,
-          duration: 5,
+          stagger: 0.02,
+          duration: 0.5,
           ease: "power2.out",
         },
-        "<",
+        "-=0.5",
       );
   }, []);
 
   return (
-    <div className="flex flex-1 flex-col items-center">
+    <div className="flex min-w-fit shrink-0 flex-col items-center lg:ml-20">
       <h2 className="flavours-title-text1 general-title text-dark-brown overflow-hidden">
         We have 6
       </h2>

@@ -10,27 +10,30 @@ export const FlavoursSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isSmallScreen = useMediaQuery({ maxWidth: 1025 });
 
-  useGSAP(() => {
-    if (!isSmallScreen) {
-      const scrollAmount =
-        (sectionRef.current?.scrollWidth ?? 0) - window.innerWidth;
+  useGSAP(
+    () => {
+      if (!isSmallScreen) {
+        const scrollAmount =
+          (sectionRef.current?.scrollWidth ?? 0) - window.innerWidth;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".flavours-section",
-          start: "top 2%",
-          end: `+=${scrollAmount}px `,
-          pin: true,
-          scrub: true,
-        },
-      });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".flavours-section",
+            start: "top 2%",
+            end: `+=${scrollAmount}px `,
+            pin: true,
+            scrub: true,
+          },
+        });
 
-      tl.to(".flavours-section", {
-        x: `-${scrollAmount}px`,
-        ease: "none",
-      });
-    }
-  }, [isSmallScreen]);
+        tl.to(".flavours-section", {
+          x: `-${scrollAmount}px`,
+          ease: "none",
+        });
+      }
+    },
+    { dependencies: [isSmallScreen], revertOnUpdate: true },
+  );
 
   return (
     <section ref={sectionRef} className="flavours-section">

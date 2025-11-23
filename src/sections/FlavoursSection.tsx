@@ -34,7 +34,7 @@ export const FlavoursSection = () => {
 
   return (
     <section ref={sectionRef} className="flavours-section">
-      <div className="flex min-h-dvh flex-row items-center gap-50 py-10 max-[1025px]:flex-col">
+      <div className="flex min-h-dvh flex-row items-center gap-50 py-10 max-[1025px]:flex-col max-[1025px]:gap-24">
         <FlavoursSectionTitle isSmallScreen={isSmallScreen} />
 
         <div className="flex w-full gap-40 max-[1025px]:flex-col max-[1025px]:items-center max-[1025px]:justify-center max-[1025px]:pb-20">

@@ -87,7 +87,7 @@ export const InterludeSection = () => {
         >
           your future with every <br /> gulp of Perfect Protein
         </div>
-        <p className="interludeParagraph center text-milk font-paragraph overflow-hidden text-center text-xl max-sm:text-[1rem]">
+        <p className="interludeParagraph center text-milk font-paragraph overflow-hidden text-center text-xl max-sm:text-[0.9rem]">
           Rev up your rebel spirit and feed the adventure of <br /> life with
           SPYLT, where you’re one chug away from <br /> epic nostalgia and
           fearless fun.

@@ -18,9 +18,9 @@ export const FlavoursSectionTitle = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".flavours-section",
-        start: isSmallScreen ? "top 100%" : "top 60%",
+        start: isSmallScreen ? "top 90%" : "top 60%",
         end: isSmallScreen ? "100vh 25%" : "bottom 80%",
-        toggleActions: "play none none reset", // Play on enter, reverse on leave
+        toggleActions: "play none none reverse", // Play on enter, reverse on leave
       },
     });
 
@@ -59,7 +59,6 @@ export const FlavoursSectionTitle = ({
         We have 6
       </h2>
 
-      {/* FREAKING block */}
       <div
         className="flavours-clipped-box bg-mid-brown border-milk relative z-10 inline-block -rotate-2 border-8 px-3 pb-2"
         style={{ clipPath: "polygon(0 0, 100% 0%, 100% 99%, 0% 100%)" }}
@@ -67,7 +66,7 @@ export const FlavoursSectionTitle = ({
         <span className="general-title text-milk">Freaking</span>
       </div>
 
-      <h2 className="flavours-title-text2 general-title text-dark-brown leading-20">
+      <h2 className="flavours-title-text2 general-title text-dark-brown leading-20 max-[1025px]:-translate-y-5">
         Delicious Flavors
       </h2>
     </div>

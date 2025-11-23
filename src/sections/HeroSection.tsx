@@ -69,7 +69,7 @@ export const HeroSection = () => {
             className="clipped-box bg-mid-brown border-milk mt-1 -rotate-1 border-[5px] p-2 text-white"
             style={{ clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)" }}
           >
-            <h2 className="text-[6.3rem] font-extrabold tracking-tight uppercase max-md:text-[5rem] max-sm:text-[2.8rem]">
+            <h2 className="text-[6rem] font-extrabold tracking-tight uppercase max-md:text-[4.8rem] max-sm:text-[2.4rem]">
               spylt milk products
             </h2>
           </div>

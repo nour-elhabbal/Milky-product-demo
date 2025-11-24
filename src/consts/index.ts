@@ -49,12 +49,12 @@ export const productsList = [
   },
 ];
 
-export const nutrientLists = [
-  { label: "Potassium", amount: "245mg" },
-  { label: "Calcium", amount: "500mg" },
-  { label: "Vitamin A", amount: "176mcg" },
-  { label: "Vitamin D", amount: "5mcg" },
-  { label: "Iron", amount: "1mg" },
+export const nutritionData = [
+  { name: "Potassium", concentration: "245mg" },
+  { name: "Calcium", concentration: "500mg" },
+  { name: "Vitamin A", concentration: "176mcg" },
+  { name: "Vitamin D", concentration: "5mcg" },
+  { name: "Iron", concentration: "1mg" },
 ];
 
 export const cards = [

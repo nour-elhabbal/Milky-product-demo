@@ -21,6 +21,7 @@
   --color-light-brown: #e3a458;
   --color-red-brown: #7f3b2d;
   --color-yellow-brown: #a26833;
+  --color-lighter-dark-brown: #865720;
   --color-milk-yellow: #e3d3bc;
   --color-red: #a02128;
   --color-milk: #faeade;
@@ -58,7 +59,7 @@ body::-webkit-scrollbar {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
   .general-title {
-    @apply text-5xl font-bold tracking-[-.35vw] uppercase md:text-8xl 2xl:text-[8.5rem];
+    @apply text-8xl font-bold tracking-[-.35vw] uppercase max-md:text-7xl max-sm:text-5xl 2xl:text-[8.5rem];
   }
 }
 

@@ -14,7 +14,7 @@ export const FlavoursSection = () => {
     () => {
       if (!isSmallScreen) {
         const scrollAmount =
-          (sectionRef.current?.scrollWidth ?? 0) - window.innerWidth;
+          (sectionRef.current?.scrollWidth ?? 0) - window.innerWidth + 500;
 
         const tl = gsap.timeline({
           scrollTrigger: {

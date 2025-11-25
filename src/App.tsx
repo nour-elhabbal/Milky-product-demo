@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 
 import { Header } from "./components";
 import {
+  BenefitsSection,
   FlavoursSection,
   HeroSection,
   InterludeSection,
@@ -29,6 +30,7 @@ const App = () => {
           <InterludeSection />
           <FlavoursSection />
           <NutritionFactsSection />
+          <BenefitsSection />
           <div className="flex-center relative z-15 h-dvh bg-amber-700 text-center text-7xl">
             STILL UNDER DEVELOPMENT
           </div>

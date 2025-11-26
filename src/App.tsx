@@ -9,6 +9,7 @@ import {
   HeroSection,
   InterludeSection,
   NutritionFactsSection,
+  TestimonialsSection,
 } from "./sections";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -30,7 +31,9 @@ const App = () => {
           <InterludeSection />
           <FlavoursSection />
           <NutritionFactsSection />
+
           <BenefitsSection />
+          <TestimonialsSection />
           <div className="flex-center relative z-15 h-dvh bg-amber-700 text-center text-7xl">
             STILL UNDER DEVELOPMENT
           </div>

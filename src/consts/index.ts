@@ -70,6 +70,7 @@ export const cards = [
     rotation: "rotate-z-[4deg]",
     name: "Alexander",
     img: "/images/p2.png",
+    translation: null,
   },
   {
     src: "/videos/f3.mp4",
@@ -90,6 +91,7 @@ export const cards = [
     rotation: "rotate-z-[-10deg]",
     name: "Chris",
     img: "/images/p5.png",
+    translation: null,
   },
   {
     src: "/videos/f6.mp4",

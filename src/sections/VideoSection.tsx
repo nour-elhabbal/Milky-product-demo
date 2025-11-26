@@ -5,34 +5,37 @@ import { useMediaQuery } from "react-responsive";
 export const VideoSection = () => {
   const isSmallScreen = useMediaQuery({ maxWidth: 767 });
 
-  useGSAP(() => {
-    if (!isSmallScreen) {
-      gsap.to(".videoMask", {
-        scrollTrigger: {
-          trigger: ".videoSection",
-          start: "top 28%",
-          end: "bottom 100%",
-          scrub: 1.5,
-        },
-        top: 0,
-        delay: 0,
-        ease: "power2",
-      });
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".videoSection",
-          start: "-0.5% top",
-          end: "bottom 0%",
-          pin: true,
-          scrub: 2,
-        },
-      });
-      tl.to(".videoMask", {
-        clipPath: "circle(72% at 50% 50%)",
-        ease: "power2.inOut",
-      });
-    }
-  }, []);
+  useGSAP(
+    () => {
+      if (!isSmallScreen) {
+        gsap.to(".videoMask", {
+          scrollTrigger: {
+            trigger: ".videoSection",
+            start: "top 28%",
+            end: "bottom 100%",
+            scrub: 1.5,
+          },
+          top: 0,
+          delay: 0,
+          ease: "power2",
+        });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".videoSection",
+            start: "top top",
+            end: "+=300% top",
+            pin: true,
+            scrub: 2,
+          },
+        });
+        tl.to(".videoMask", {
+          clipPath: "circle(100% at 50% 50%)",
+          ease: "power2.inOut",
+        });
+      }
+    },
+    { dependencies: [isSmallScreen], revertOnUpdate: true },
+  );
 
   return (
     <section className="videoSection relative h-dvh overflow-hidden bg-black">

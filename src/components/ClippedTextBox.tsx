@@ -15,7 +15,7 @@ export const ClippedTextBox = ({
 }: ClippedTextBoxProps) => {
   return (
     <div
-      className={`px-5 pb-4 ${className}`}
+      className={`px-5 py-2 ${className}`}
       id={id}
       style={{
         clipPath: initiallyClosed

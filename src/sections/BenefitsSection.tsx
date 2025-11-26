@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ClippedTextBox } from "../components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { VideoSection } from "./VideoSection";
 
 export const BenefitsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ export const BenefitsSection = () => {
 
   return (
     <section className="flex-center relative h-dvh min-h-fit w-screen flex-col bg-black">
-      <div className="text-milk font-paragraph overflow-hidden text-center text-xl max-sm:text-[0.9rem]">
+      <div className="text-milk font-paragraph mt-10 overflow-hidden text-center text-xl max-sm:text-[0.9rem]">
         Unlock the Advantages: <br /> Explore the Key Benefits of Choosing SPYLT
       </div>
 
@@ -63,8 +64,12 @@ export const BenefitsSection = () => {
         <ClippedTextBox
           id="benefits-4"
           text="Lactose free"
-          className="bg-light-yellow -rotate-3 border-4 border-black text-black"
+          className="bg-light-yellow relative z-2 -rotate-3 border-4 border-black text-black"
         />
+      </div>
+
+      <div className="relative">
+        <VideoSection />
       </div>
     </section>
   );

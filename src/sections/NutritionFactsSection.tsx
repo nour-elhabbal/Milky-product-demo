@@ -7,7 +7,7 @@ export const NutritionFactsSection = () => {
       <img
         src="/images/slider-dip.png"
         alt="nutrition facts bg"
-        className="relative top-0"
+        className="relative top-0 w-full object-cover"
       />
 
       <div className="relative z-10 flex min-h-dvh flex-col items-center">

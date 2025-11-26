@@ -27,7 +27,6 @@ export const VideoCard = ({ cardData }: VideoCardProps) => {
         ref={videoRef}
         onMouseEnter={handlePlay}
         onMouseLeave={handlePause}
-        autoPlay
         muted
         playsInline
         loop

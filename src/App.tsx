@@ -6,6 +6,7 @@ import { Header } from "./components";
 import {
   BenefitsSection,
   FlavoursSection,
+  Footer,
   HeroSection,
   InterludeSection,
   NutritionFactsSection,
@@ -34,9 +35,10 @@ const App = () => {
 
           <BenefitsSection />
           <TestimonialsSection />
-          <div className="flex-center relative z-15 h-dvh bg-amber-700 text-center text-7xl">
+          <Footer />
+          {/* <div className="flex-center relative z-15 h-dvh bg-amber-700 text-center text-7xl">
             STILL UNDER DEVELOPMENT
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

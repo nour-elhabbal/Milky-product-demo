@@ -5,3 +5,4 @@ export * from "./NutritionFactsSection";
 export * from "./BenefitsSection";
 export * from "./VideoSection";
 export * from "./TestimonialsSection";
+export * from "./Footer";

@@ -70,7 +70,7 @@ export const InterludeSection = () => {
   }, []);
 
   return (
-    <section className="interludeSection bg-red-brown h- relative z-20 flex-col justify-center py-20">
+    <section className="interludeSection bg-red-brown relative z-20 flex-col justify-center py-20">
       <div className="flex-center mt-12 flex-col">
         <div className={`interlude-text1 ${interludeTextStyles}`}>
           Stir up your <br />

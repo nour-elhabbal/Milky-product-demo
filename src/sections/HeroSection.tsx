@@ -2,9 +2,11 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   // Ensure the video freezes at the final frame
   const handleVideoEnd = () => {
@@ -14,58 +16,61 @@ export const HeroSection = () => {
     vid.currentTime = vid.duration;
   };
 
-  useGSAP(() => {
-    const titleSplit = SplitText.create(".heroContent h1", { type: "chars" });
+  useGSAP(
+    () => {
+      const titleSplit = SplitText.create(".heroContent h1", { type: "chars" });
 
-    const tl = gsap.timeline({
-      delay: 1.3,
-    });
+      const tl = gsap.timeline({
+        delay: 1.3,
+      });
 
-    tl.to(".heroContent", {
-      opacity: 1,
-      y: 0,
-      ease: "power1.inOut",
-    })
-      .to(
-        ".clipped-box",
-        {
-          clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0% 100%)",
-          ease: "power2.out",
-          duration: 1,
+      tl.to(".heroContent", {
+        opacity: 1,
+        y: 0,
+        ease: "power1.inOut",
+      })
+        .to(
+          ".clipped-box",
+          {
+            clipPath: "polygon(0% 0, 100% 0, 100% 100%, 0% 100%)",
+            ease: "power2.out",
+            duration: 1,
+          },
+          "-=0.5",
+        )
+        .from(
+          titleSplit.chars,
+          {
+            opacity: 1,
+            yPercent: 200,
+            stagger: 0.03,
+            ease: "power2.out",
+          },
+          "-=0.5",
+        );
+
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".heroContainer",
+          start: "1% top",
+          end: "bottom top",
+          scrub: true,
         },
-        "-=0.5",
-      )
-      .from(
-        titleSplit.chars,
-        {
-          opacity: 1,
-          yPercent: 200,
-          stagger: 0.03,
-          ease: "power2.out",
-        },
-        "-=0.5",
-      );
+      });
 
-    const heroTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".heroContainer",
-        start: "1% top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    heroTl.to(".heroContainer", {
-      rotate: 7,
-      scale: 0.9,
-      yPercent: 30,
-      ease: "power",
-    });
-  }, []);
+      heroTl.to(".heroContainer", {
+        rotate: isMobile ? 0 : 7,
+        scale: 0.9,
+        yPercent: 30,
+        ease: "power",
+      });
+    },
+    { dependencies: [isMobile], revertOnUpdate: true },
+  );
 
   return (
     <section className="bg-main-bg">
-      <div className="heroContainer bg-milk text-dark-brown h-dvh w-full overflow-hidden">
+      <div className="heroContainer bg-milk text-dark-brown h-dvh w-full overflow-hidden max-sm:h-screen">
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"

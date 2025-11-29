@@ -7,6 +7,8 @@ export const VideoSection = () => {
 
   useGSAP(
     () => {
+      gsap.set(".videoMask", { top: isSmallScreen ? -80 : -280 });
+
       if (!isSmallScreen) {
         gsap.to(".videoMask", {
           scrollTrigger: {
@@ -38,9 +40,9 @@ export const VideoSection = () => {
   );
 
   return (
-    <section className="videoSection relative h-dvh overflow-hidden bg-black">
+    <section className="videoSection relative h-dvh overflow-hidden bg-black max-sm:h-screen">
       <div
-        className="videoMask relative -top-70 h-[105vh] w-screen max-md:top-20"
+        className="videoMask relative h-[105vh] w-screen"
         style={{
           clipPath: isSmallScreen ? "unset" : "circle(5.5% at 50% 50%)",
         }}

@@ -34,7 +34,7 @@ export const BenefitsSection = () => {
   }, []);
 
   return (
-    <section className="flex-center relative h-dvh min-h-fit w-screen flex-col bg-black">
+    <section className="flex-center relative h-dvh min-h-fit w-screen flex-col bg-black max-sm:h-screen">
       <div className="text-milk font-paragraph mt-10 overflow-hidden text-center text-xl max-sm:text-[0.9rem]">
         Unlock the Advantages: <br /> Explore the Key Benefits of Choosing SPYLT
       </div>

@@ -25,7 +25,13 @@ const App = () => {
 
   useEffect(() => {
     if (isTouch) {
+      const lastWidth = window.innerWidth;
+
       const handleResize = () => {
+        const currentWidth = window.innerWidth;
+        if (currentWidth === lastWidth || currentWidth < lastWidth + 100)
+          return;
+
         ScrollTrigger.refresh();
         window.location.reload();
       };

@@ -52,7 +52,7 @@ export const VideoSection = () => {
   );
 
   return (
-    <section className="videoSection relative -mt-5 h-dvh overflow-hidden bg-black max-sm:h-screen">
+    <section className="videoSection relative -mt-5 h-screen overflow-hidden bg-black max-sm:h-screen">
       <div className="videoMask relative h-[105vh] w-screen will-change-transform">
         <video
           className="abs-center inset-0 size-full object-cover"

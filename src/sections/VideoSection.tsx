@@ -8,7 +8,7 @@ export const VideoSection = () => {
 
   useGSAP(
     () => {
-      gsap.set(".videoMask", { y: isSmallScreen ? 0 : "-40vh" });
+      gsap.set(".videoMask", { y: isSmallScreen ? 0 : -300 });
 
       gsap.set(".videoMask", {
         clipPath: isSmallScreen
@@ -36,6 +36,7 @@ export const VideoSection = () => {
             end: "+=300% top",
             pin: true,
             scrub: 2,
+            invalidateOnRefresh: true,
           },
         });
 
@@ -60,7 +61,7 @@ export const VideoSection = () => {
           loop
           preload="auto"
         />
-        <div className="abs-center scale-200 md:scale-100">
+        <div className="abs-center scale-200 md:scale-70">
           <img
             src="/images/circle-text.svg"
             className="spin-circle max-md:scale-50"

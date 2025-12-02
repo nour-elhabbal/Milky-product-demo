@@ -23,6 +23,7 @@ export const FlavoursSection = () => {
             end: `+=${scrollAmount}px `,
             pin: true,
             scrub: true,
+            invalidateOnRefresh: true,
           },
         });
 

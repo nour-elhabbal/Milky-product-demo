@@ -14,6 +14,7 @@ import {
   TestimonialsSection,
   VideoSection,
 } from "./sections";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -21,6 +22,17 @@ const App = () => {
   const isTouch = useMediaQuery({
     query: "(hover: none) and (pointer: coarse)",
   });
+
+  useEffect(() => {
+    if (isTouch) {
+      const handleResize = () => {
+        ScrollTrigger.refresh();
+        window.location.reload();
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [isTouch]);
 
   useGSAP(
     () => {

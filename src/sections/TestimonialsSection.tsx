@@ -6,13 +6,22 @@ import { VideoCard } from "../components";
 import { cards } from "../consts";
 
 export const TestimonialsSection = () => {
-  const isMobile = useMediaQuery({ maxWidth: "425px" });
+  const isTouch = useMediaQuery({
+    query: "(hover: none) and (pointer: coarse)",
+  });
+  const isMobile = useMediaQuery({ maxWidth: 766 });
 
   useGSAP(
     () => {
-      gsap.set(".testimonialsSection", {
-        marginTop: isMobile ? 0 : "-100vh",
-      });
+      if (!isMobile) {
+        gsap.set(".testimonialsSection", {
+          marginTop: isTouch ? "-80vh" : "-100vh",
+        });
+      } else {
+        gsap.set(".testimonialsSection", {
+          marginTop: 0,
+        });
+      }
 
       const headingTl = gsap.timeline({
         scrollTrigger: {
@@ -49,6 +58,7 @@ export const TestimonialsSection = () => {
           end: "200% top",
           scrub: true,
           pin: true,
+          invalidateOnRefresh: true,
         },
       });
 
@@ -57,7 +67,7 @@ export const TestimonialsSection = () => {
         stagger: 0.5,
       });
     },
-    { dependencies: [isMobile], revertOnUpdate: true },
+    { dependencies: [isTouch], revertOnUpdate: true },
   );
   return (
     <section className="testimonialsSection bg-milk relative z-20 h-[120vh] overflow-hidden">

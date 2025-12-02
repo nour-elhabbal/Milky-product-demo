@@ -1,7 +1,9 @@
+import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import { useMediaQuery } from "react-responsive";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { VideoPlayerDialog } from "@/components/VideoPlayerDialog";
 
 export const VideoSection = () => {
   const isSmallScreen = useMediaQuery({ maxWidth: 767 });
@@ -61,15 +63,23 @@ export const VideoSection = () => {
           loop
           preload="auto"
         />
-        <div className="abs-center scale-200 md:scale-70">
-          <img
-            src="/images/circle-text.svg"
-            className="spin-circle max-md:scale-50"
+        <Dialog modal>
+          <DialogTrigger className="cursor-pointer">
+            <div className="abs-center scale-200 md:scale-70">
+              <img
+                src="/images/circle-text.svg"
+                className="spin-circle max-md:scale-50"
+              />
+              <div className="abs-center">
+                <img src="/images/play.svg" className="ml-[.5vw] size-[3vw]" />
+              </div>
+            </div>
+          </DialogTrigger>
+          <VideoPlayerDialog
+            videoUrl="https://youtu.be/sKIc6O7q6Hg?si=JKUgahM3_ePZs1yi"
+            className=""
           />
-          <div className="abs-center">
-            <img src="/images/play.svg" className="ml-[.5vw] size-[3vw]" />
-          </div>
-        </div>
+        </Dialog>
       </div>
     </section>
   );

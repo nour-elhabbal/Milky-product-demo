@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+
 import { useMediaQuery } from "react-responsive";
 
 export const VideoSection = () => {
@@ -7,7 +8,13 @@ export const VideoSection = () => {
 
   useGSAP(
     () => {
-      gsap.set(".videoMask", { top: isSmallScreen ? -80 : -280 });
+      gsap.set(".videoMask", { y: isSmallScreen ? 0 : "-40vh" });
+
+      gsap.set(".videoMask", {
+        clipPath: isSmallScreen
+          ? "circle(100% at 50% 50%)"
+          : "circle(5.5% at 50% 50%)",
+      });
 
       if (!isSmallScreen) {
         gsap.to(".videoMask", {
@@ -17,10 +24,11 @@ export const VideoSection = () => {
             end: "bottom 100%",
             scrub: 1.5,
           },
-          top: 0,
+          y: 0,
           delay: 0,
           ease: "power2",
         });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".videoSection",
@@ -30,6 +38,7 @@ export const VideoSection = () => {
             scrub: 2,
           },
         });
+
         tl.to(".videoMask", {
           clipPath: "circle(100% at 50% 50%)",
           ease: "power2.inOut",
@@ -40,13 +49,8 @@ export const VideoSection = () => {
   );
 
   return (
-    <section className="videoSection relative h-dvh overflow-hidden bg-black max-sm:h-screen">
-      <div
-        className="videoMask relative h-[105vh] w-screen"
-        style={{
-          clipPath: isSmallScreen ? "unset" : "circle(5.5% at 50% 50%)",
-        }}
-      >
+    <section className="videoSection relative -mt-5 h-dvh overflow-hidden bg-black max-sm:h-screen">
+      <div className="videoMask relative h-[105vh] w-screen will-change-transform">
         <video
           className="abs-center inset-0 size-full object-cover"
           src="/videos/pin-video.mp4"

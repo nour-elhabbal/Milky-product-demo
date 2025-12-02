@@ -36,6 +36,10 @@
   --font-paragraph: "ProximaNova, sans-serif";
 }
 
+* {
+  backface-visibility: hidden;
+}
+
 html,
 body {
   margin: 0;

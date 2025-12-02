@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -11,34 +12,41 @@ import {
   InterludeSection,
   NutritionFactsSection,
   TestimonialsSection,
+  VideoSection,
 } from "./sections";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
-  useGSAP(() => {
-    ScrollSmoother.create({
-      smooth: 3,
-      effects: true,
-    });
+  const isTouch = useMediaQuery({
+    query: "(hover: none) and (pointer: coarse)",
   });
+
+  useGSAP(
+    () => {
+      if (!isTouch) {
+        ScrollSmoother.create({
+          smooth: 3,
+          effects: true,
+        });
+      }
+    },
+    { dependencies: [isTouch], revertOnUpdate: true },
+  );
 
   return (
     <main>
       <Header />
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
+      <div id="smooth-wrapper" className="h-full overflow-hidden">
+        <div id="smooth-content" className="min-h-full">
           <HeroSection />
           <InterludeSection />
           <FlavoursSection />
           <NutritionFactsSection />
-
           <BenefitsSection />
+          <VideoSection />
           <TestimonialsSection />
           <Footer />
-          {/* <div className="flex-center relative z-15 h-dvh bg-amber-700 text-center text-7xl">
-            STILL UNDER DEVELOPMENT
-          </div> */}
         </div>
       </div>
     </main>

@@ -16,7 +16,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="flex min-h-screen flex-col bg-black text-white">
+    <footer className="-mt-2 flex min-h-screen flex-col bg-black text-white">
       <img
         src="/images/slider-dip.png"
         alt="nutrition facts bg"

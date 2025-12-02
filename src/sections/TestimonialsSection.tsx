@@ -10,11 +10,9 @@ export const TestimonialsSection = () => {
 
   useGSAP(
     () => {
-      if (!isMobile) {
-        gsap.set(".testimonialsSection", {
-          marginTop: "-100vh",
-        });
-      }
+      gsap.set(".testimonialsSection", {
+        marginTop: isMobile ? 0 : "-100vh",
+      });
 
       const headingTl = gsap.timeline({
         scrollTrigger: {

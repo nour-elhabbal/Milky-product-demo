@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { ClippedTextBox } from "../components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { VideoSection } from "./VideoSection";
 
 export const BenefitsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,10 +65,6 @@ export const BenefitsSection = () => {
           text="Lactose free"
           className="bg-light-yellow relative z-2 -rotate-3 border-4 border-black text-black"
         />
-      </div>
-
-      <div className="relative">
-        <VideoSection />
       </div>
     </section>
   );

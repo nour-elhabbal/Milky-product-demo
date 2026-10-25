@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
-import { useGSAP } from "@gsap/react";
 
 import { Header } from "./components";
+import { SmoothScroll } from "./components/SmoothScroll";
+import { useAssetsReady } from "./hooks/useAssetsReady";
 import {
   BenefitsSection,
   FlavoursSection,
@@ -14,14 +16,25 @@ import {
   TestimonialsSection,
   VideoSection,
 } from "./sections";
-import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+  ScrollTrigger.normalizeScroll(true);
+}
 
 const App = () => {
   const isTouch = useMediaQuery({
     query: "(hover: none) and (pointer: coarse)",
   });
+
+  const ready = useAssetsReady();
+
+  useEffect(() => {
+    if (ready) ScrollTrigger.refresh();
+  }, [ready]);
 
   useEffect(() => {
     if (isTouch) {
@@ -40,21 +53,14 @@ const App = () => {
     }
   }, [isTouch]);
 
-  useGSAP(
-    () => {
-      if (!isTouch) {
-        ScrollSmoother.create({
-          smooth: 3,
-          effects: true,
-        });
-      }
-    },
-    { dependencies: [isTouch], revertOnUpdate: true },
-  );
-
   return (
     <main>
+      {!ready && <Loader />}
+
       <Header />
+
+      <SmoothScroll enabled={!isTouch} />
+
       <div id="smooth-wrapper" className="h-full overflow-hidden">
         <div id="smooth-content" className="min-h-full">
           <HeroSection />
@@ -70,5 +76,11 @@ const App = () => {
     </main>
   );
 };
+
+const Loader = () => (
+  <div className="bg-milk fixed inset-0 z-50 flex items-center justify-center">
+    <p className="text-2xl font-bold uppercase">Loading...</p>
+  </div>
+);
 
 export default App;

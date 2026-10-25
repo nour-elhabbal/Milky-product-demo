@@ -70,7 +70,7 @@ export const HeroSection = () => {
 
   return (
     <section className="bg-main-bg">
-      <div className="heroContainer bg-milk text-dark-brown h-dvh w-full overflow-hidden max-sm:h-screen">
+      <div className="heroContainer bg-milk text-dark-brown relative h-dvh w-full overflow-hidden max-sm:h-screen">
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"

@@ -15,23 +15,26 @@ export const FlavourCard = ({
 }: FlavourCardProps) => {
   return (
     <div
-      className={`flex h-fit w-[70%] max-w-204 min-w-88 flex-none transform-gpu cursor-pointer flex-col items-center justify-center bg-cover bg-center bg-no-repeat transition-all will-change-transform hover:scale-[1.01] ${rotation} `}
+      className={`relative flex h-fit w-[70%] max-w-204 min-w-88 flex-none cursor-pointer flex-col items-center justify-center transition-transform hover:scale-[1.01] ${rotation}`}
     >
       <img
-        src={`${bgUrl}`}
+        src={bgUrl}
         alt="background"
+        decoding="async"
         className="relative bottom-0 w-full"
       />
 
       <img
-        src={`${productImageUrl}`}
+        src={productImageUrl}
         alt="product image"
+        decoding="async"
         className="absolute bottom-0 w-[54%]"
       />
 
       <img
-        src={`${particlesUrl}`}
+        src={particlesUrl}
         alt="particles"
+        decoding="async"
         className="absolute bottom-0 w-full -translate-y-[30%]"
       />
 

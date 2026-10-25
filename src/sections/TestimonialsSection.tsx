@@ -13,9 +13,11 @@ export const TestimonialsSection = () => {
 
   useGSAP(
     () => {
+      // "svh" = small viewport height: it does NOT change when the phone's
+      // URL bar collapses, so the layout stops shifting while scrolling.
       if (!isMobile) {
         gsap.set(".testimonialsSection", {
-          marginTop: isTouch ? "-80vh" : "-100vh",
+          marginTop: isTouch ? "-80svh" : "-100svh",
         });
       } else {
         gsap.set(".testimonialsSection", {
@@ -23,6 +25,7 @@ export const TestimonialsSection = () => {
         });
       }
 
+      // Heading words sliding sideways (unchanged)
       const headingTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".testimonialsSection",
@@ -51,13 +54,15 @@ export const TestimonialsSection = () => {
           "<",
         );
 
+      // Pinned section where the cards slide up
       const cardsTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".testimonialsSection",
           start: "10% top",
           end: "200% top",
-          scrub: true,
+          scrub: 0.5, // was `true`: a small catch-up delay smooths out touch scrolling
           pin: true,
+          anticipatePin: 1, // prepares the pin slightly early to reduce the jump
           invalidateOnRefresh: true,
         },
       });
@@ -67,10 +72,13 @@ export const TestimonialsSection = () => {
         stagger: 0.5,
       });
     },
-    { dependencies: [isTouch], revertOnUpdate: true },
+    // isMobile added: the margin logic above depends on it, so the
+    // animation must be rebuilt when it changes
+    { dependencies: [isTouch, isMobile], revertOnUpdate: true },
   );
+
   return (
-    <section className="testimonialsSection bg-milk relative z-20 h-[120vh] overflow-hidden">
+    <section className="testimonialsSection bg-milk relative z-20 h-[120svh] overflow-hidden">
       <div className="absolute flex size-full flex-col items-center justify-center">
         <Heading text="what's" className="testimonialsText1 text-black" />
         <Heading text="everyone" className="text-mid-brown testimonialsText2" />
@@ -78,7 +86,7 @@ export const TestimonialsSection = () => {
       </div>
       <div className="flex h-full items-center justify-center">
         {cards.map((card) => (
-          <VideoCard cardData={card} />
+          <VideoCard key={card.name} cardData={card} />
         ))}
       </div>
     </section>
